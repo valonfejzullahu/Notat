@@ -26,3 +26,6 @@ Route::get('/register', function () {
 Route::get('/forgot_password', function () {
     return view('forgot_password');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
