@@ -17,7 +17,7 @@ class CreateSubjectTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string("name", 255);
-            $table->bigInteger("professor");
+            $table->bigInteger("professors");
             $table->bigInteger("student");
             $table->integer("department");
         });

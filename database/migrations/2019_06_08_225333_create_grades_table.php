@@ -19,7 +19,7 @@ class CreateGradesTable extends Migration
             $table->tinyInteger("value");
             $table->bigInteger("student");
             $table->bigInteger("subject");
-            $table->bigInteger("professor");
+            $table->bigInteger("professors");
             $table->date("assignedAt");
         });
     }

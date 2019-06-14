@@ -29,3 +29,13 @@ Route::get('/forgot_password', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/professors', 'ProfessorsController@index');
+Route::get('/professors/create', 'ProfessorsController@create');
+Route::get('/professors/edit', 'ProfessorsController@edit');
+Route::get('/professors/delete', 'ProfessorsController@delete');
+
+Route::get('/students', 'StudentsController@index');
+Route::get('/students/create', 'StudentsController@create');
+Route::get('/students/edit', 'StudentsController@edit');
+Route::get('/students/delete', 'StudentsController@delete');
