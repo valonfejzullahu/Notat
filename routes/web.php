@@ -36,6 +36,7 @@ Route::get('/professors/edit', 'ProfessorsController@edit');
 Route::get('/professors/delete', 'ProfessorsController@delete');
 
 Route::get('/students', 'StudentsController@index');
+Route::get('/students/{student}', 'StudentsController@show');
 Route::get('/students/create', 'StudentsController@create');
 Route::get('/students/edit', 'StudentsController@edit');
 Route::get('/students/delete', 'StudentsController@delete');

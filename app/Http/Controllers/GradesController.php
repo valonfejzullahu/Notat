@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App;
 
-class StudentsController extends Controller
+class GradesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $students = App\User::where('role', 'Student')->get();
-
-        return view("students.index", ['students' => $students]);
+        //
     }
 
     /**
@@ -26,7 +23,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        return view("shared.create");
+        //
     }
 
     /**
@@ -48,10 +45,7 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        $student = App\User::where("id", $id)->get();
-        $classes = App\Grade::where("student", $id)->get();
-
-        return view("students.profile", ['student' => $student], ["grades" => $classes]);
+        //
     }
 
     /**
