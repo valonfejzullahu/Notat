@@ -12,4 +12,9 @@ class Subject extends Model
     ];
 
     protected $table = 'classes';
+
+    public function people(){
+        return $this->hasMany(User::class);
+    }
+
 }

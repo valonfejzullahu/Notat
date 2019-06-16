@@ -36,8 +36,8 @@ Route::get('/professors/edit', 'ProfessorsController@edit');
 Route::get('/professors/delete/{professor}', 'ProfessorsController@destroy');
 
 Route::get('/students', 'StudentsController@index');
-Route::get('/students/{student}', 'StudentsController@show');
 Route::get('/students/create', 'StudentsController@create');
+Route::get('/students/{student}', 'StudentsController@show');
 Route::get('/students/edit', 'StudentsController@edit');
 Route::get('/students/delete/{student}', 'StudentsController@destroy');
 
@@ -52,3 +52,8 @@ Route::post('/classes', 'ClassesController@store');
 Route::get('/classes/create', 'ClassesController@create');
 Route::get('/classes/edit', 'ClassesController@edit');
 Route::get('/classes/delete/{class}', 'ClassesController@destroy');
+
+Route::get('/grades/class/{class}', 'GradesController@classgrades');
+Route::get('/grades/mine', 'GradesController@usergrades');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

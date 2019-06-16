@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class GradesController extends Controller
 {
@@ -48,6 +51,23 @@ class GradesController extends Controller
     {
         //
     }
+
+    public function classgrades($id)
+    {
+        $grades = App\Grade::where('class', $id)->get();
+
+        return view("grades.index", ['grades' => $grades]);
+    }
+
+    public function usergrades()
+    {
+        $user = Auth::user();
+        $id = $user->id;
+        $grades = App\Grade::where('student', $id)->get();
+
+        return view("grades.index", ['grades' => $grades]);
+    }
+
 
     /**
      * Show the form for editing the specified resource.

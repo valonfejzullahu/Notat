@@ -22,12 +22,12 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading"><a href="/"><strong>Home</strong></a></div>
+{{--        <div class="sidebar-heading"><a href="/"><strong>Home</strong></a></div>--}}
         <div class="list-group list-group-flush">
-            <a href="/professors" class="list-group-item list-group-item-action bg-light">Professors</a>
-            <a href="/students" class="list-group-item list-group-item-action bg-light">Students</a>
-            <a href="/departments" class="list-group-item list-group-item-action bg-light">Departments</a>
-            <a href="/classes" class="list-group-item list-group-item-action bg-light">Classes</a>
+{{--            <a href="/professors" class="list-group-item list-group-item-action bg-light">Professors</a>--}}
+{{--            <a href="/students" class="list-group-item list-group-item-action bg-light">Students</a>--}}
+{{--            <a href="/departments" class="list-group-item list-group-item-action bg-light">Departments</a>--}}
+{{--            <a href="/classes" class="list-group-item list-group-item-action bg-light">Classes</a>--}}
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -36,9 +36,9 @@
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            @if(Request::segment(2) != "create" )
-                <a href="{{ Request::segment(1) }}/create"><button class="btn btn-primary" id="menu-toggle">Add New</button></a>
-            @endif
+{{--            @if(Request::segment(2) != "create" )--}}
+{{--                <a href="{{ Request::segment(1) }}/create"><button class="btn btn-primary" id="menu-toggle">Add New</button></a>--}}
+{{--            @endif--}}
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
 {{--                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>--}}
 {{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="#">Logout</a>
                     </li>
                 </ul>
             </div>

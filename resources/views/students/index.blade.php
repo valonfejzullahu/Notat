@@ -9,6 +9,7 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Department</th>
+
             <th scope="col">Delete</th>
         </tr>
         </thead>
@@ -20,6 +21,7 @@
                     <td>{{$student->name}}</td>
                     <td>{{$student->email}}</td>
                     <td>{{$student->department}}</td>
+
                     <td><a href="students/delete/{{$student->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
                 </tr>
             </a>
