@@ -89,6 +89,8 @@ class DepartmentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        App\Department::destroy($id);
+
+        return redirect("/departments");
     }
 }

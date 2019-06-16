@@ -51,7 +51,7 @@ class StudentsController extends Controller
         $student = App\User::where("id", $id)->get();
         $classes = App\Grade::where("student", $id)->get();
 
-        return view("students.profile", ['student' => $student], ["grades" => $classes]);
+        return view("students.profile", ['student' => $student], ["classes" => $classes]);
     }
 
     /**
@@ -85,6 +85,8 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        App\User::destroy($id);
+
+        return redirect("/students");
     }
 }

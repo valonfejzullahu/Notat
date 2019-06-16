@@ -33,22 +33,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/professors', 'ProfessorsController@index');
 Route::get('/professors/create', 'ProfessorsController@create');
 Route::get('/professors/edit', 'ProfessorsController@edit');
-Route::get('/professors/delete', 'ProfessorsController@delete');
+Route::get('/professors/delete/{professor}', 'ProfessorsController@destroy');
 
 Route::get('/students', 'StudentsController@index');
 Route::get('/students/{student}', 'StudentsController@show');
 Route::get('/students/create', 'StudentsController@create');
 Route::get('/students/edit', 'StudentsController@edit');
-Route::get('/students/delete', 'StudentsController@delete');
+Route::get('/students/delete/{student}', 'StudentsController@destroy');
 
 Route::get('/departments', 'DepartmentsController@index');
 Route::post('/departments', 'DepartmentsController@store');
 Route::get('/departments/create', 'DepartmentsController@create');
 Route::get('/departments/edit', 'DepartmentsController@edit');
-Route::get('/departments/delete', 'DepartmentsController@delete');
+Route::get('/departments/delete/{department}', 'DepartmentsController@destroy');
 
 Route::get('/classes', 'ClassesController@index');
 Route::post('/classes', 'ClassesController@store');
 Route::get('/classes/create', 'ClassesController@create');
 Route::get('/classes/edit', 'ClassesController@edit');
-Route::get('/classes/delete', 'ClassesController@delete');
+Route::get('/classes/delete/{class}', 'ClassesController@destroy');

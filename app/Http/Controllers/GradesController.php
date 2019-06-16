@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class GradesController extends Controller
 {
@@ -79,6 +80,8 @@ class GradesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        App\Grade::destroy($id);
+
+        return redirect("/grades");
     }
 }

@@ -7,17 +7,19 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Class</th>
-            <th scope="col">Department</th>
             <th scope="col">Professor</th>
+            <th scope="col">Department</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
         @foreach($classes as $class)
             <tr>
-                <th scope="row">1</th>
+                <th scope="row">{{$class->id}}</th>
                 <td>{{$class->name}}</td>
-                <td>{{$class->department}}</td>
                 <td>{{$class->professor}}</td>
+                <td>{{$class->department}}</td>
+                <td><a href="classes/delete/{{$class->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
             </tr>
         @endforeach
         </tbody>

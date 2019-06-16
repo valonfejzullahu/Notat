@@ -82,6 +82,8 @@ class ProfessorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        App\User::destroy($id);
+
+        return redirect("/professors");
     }
 }

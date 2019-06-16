@@ -91,6 +91,8 @@ class ClassesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        App\Subject::destroy($id);
+
+        return redirect("/classes");
     }
 }
