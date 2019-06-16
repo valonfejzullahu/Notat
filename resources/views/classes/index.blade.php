@@ -6,21 +6,21 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Class</th>
+            <th scope="col">Department</th>
+            <th scope="col">Professor</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($professors as $professor)
+        @foreach($classes as $class)
             <tr>
                 <th scope="row">1</th>
-                <td>{{$professor->name}}</td>
-                <td></td>
-                <td></td>
+                <td>{{$class->name}}</td>
+                <td>{{$class->department}}</td>
+                <td>{{$class->professor}}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
 
-    @endsection
+@endsection

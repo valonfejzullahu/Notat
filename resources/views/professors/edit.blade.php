@@ -1,6 +1,6 @@
 @extends("shared.admin_layout")
 
-@section("body")
+@section("content")
 
 <form>
     <div class="form-row">
@@ -48,3 +48,5 @@
     </div>
     <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
+
+@endsection

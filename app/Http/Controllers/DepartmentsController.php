@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use Illuminate\Http\Request;
 use App;
 
-class ProfessorsController extends Controller
+class DepartmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class ProfessorsController extends Controller
      */
     public function index()
     {
-        $students = App\User::where('role', 'Professor')->get();
+        $departments = App\Department::all();
 
-        return view("professors.index", ['professors' => $students]);
+        return view("departments.index", ['departments' => $departments]);
     }
 
     /**
@@ -26,7 +27,7 @@ class ProfessorsController extends Controller
      */
     public function create()
     {
-        return view("shared.create");
+        return view("departments.create");
     }
 
     /**
@@ -37,7 +38,13 @@ class ProfessorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $department = new Department();
+
+        $department->name = request("name");
+        $department->save();
+
+        return redirect("/departments");
+
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGradesTable extends Migration
+class CreateEligibleUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateGradesTable extends Migration
      */
     public function up()
     {
-        Schema::create('grades', function (Blueprint $table) {
+        Schema::create('eligible_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->tinyInteger("value");
-            $table->bigInteger("student");
-            $table->bigInteger("class");
-            $table->bigInteger("professors");
-            $table->boolean("assigned");
-            $table->date("assignedAt");
+            $table->string("first_name", 255);
+            $table->string("last_name", 255);
+            $table->string("secret_key", 255);
         });
     }
 
@@ -32,6 +29,6 @@ class CreateGradesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grades');
+        Schema::dropIfExists('eligible_users');
     }
 }

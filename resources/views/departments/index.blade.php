@@ -12,10 +12,10 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($professors as $professor)
+        @foreach($departments as $department)
             <tr>
                 <th scope="row">1</th>
-                <td>{{$professor->name}}</td>
+                <td>{{$department->name}}</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -23,4 +23,4 @@
         </tbody>
     </table>
 
-    @endsection
+@endsection

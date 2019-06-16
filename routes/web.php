@@ -39,3 +39,15 @@ Route::get('/students', 'StudentsController@index');
 Route::get('/students/create', 'StudentsController@create');
 Route::get('/students/edit', 'StudentsController@edit');
 Route::get('/students/delete', 'StudentsController@delete');
+
+Route::get('/departments', 'DepartmentsController@index');
+Route::post('/departments', 'DepartmentsController@store');
+Route::get('/departments/create', 'DepartmentsController@create');
+Route::get('/departments/edit', 'DepartmentsController@edit');
+Route::get('/departments/delete', 'DepartmentsController@delete');
+
+Route::get('/classes', 'ClassesController@index');
+Route::post('/classes', 'ClassesController@store');
+Route::get('/classes/create', 'ClassesController@create');
+Route::get('/classes/edit', 'ClassesController@edit');
+Route::get('/classes/delete', 'ClassesController@delete');
