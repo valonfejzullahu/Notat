@@ -31,9 +31,9 @@
 
                                 <div class="col-md-6">
                                     <select id="department" name="department" class="form-control">
-                                        <option selected value="1">Industrial Engineering</option>
-                                        <option value="2">Information Technology</option>
-                                        <option value="3">Network Engineering</option>
+                                        @foreach($departments as $department)
+                                            <option value="{{$department->id}}">{{$department->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -43,8 +43,9 @@
 
                                 <div class="col-md-6">
                                     <select id="role" name="professor" class="form-control">
-                                        <option value="2">Prof Xavier</option>
-                                        <option value="4">Professor</option>
+                                        @foreach($professors as $professor)
+                                            <option value="{{$professor->id}}">{{$professor->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

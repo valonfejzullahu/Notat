@@ -42,9 +42,14 @@ class ClassesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        return view("classes.create");
+        $departments = App\Department::all();
+
+        $professors = App\User::where("role", "Professor")->get();
+
+        return view("classes.create", ['departments' => $departments], ['professors'=>$professors]);
     }
 
     /**
