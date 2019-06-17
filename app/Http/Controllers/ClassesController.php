@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Subject;
 use Illuminate\Http\Request;
 use App;
+use Illuminate\Support\Facades\Auth;
 
 class ClassesController extends Controller
 {
@@ -13,11 +14,27 @@ class ClassesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('checkRole')->except("mine");
+    }
+
+
     public function index()
     {
         $classes = App\Subject::all();
 
         return view("classes.index", ['classes' => $classes]);
+    }
+
+    public function mine()
+    {
+        $user = Auth::user();
+        $id = $user->id;
+        $classes = App\Subject::where("professor", $id)->get();
+
+        return view("classes.mine", ['classes' => $classes]);
     }
 
     /**

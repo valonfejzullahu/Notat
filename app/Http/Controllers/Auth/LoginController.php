@@ -40,7 +40,7 @@ class LoginController extends Controller
                 return '/admin';
                 break;
             case 'Professor':
-                return '/professors';
+                return '/classes/mine';
                 break;
             case 'Student':
                 return '/grades/mine';

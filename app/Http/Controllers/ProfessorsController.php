@@ -12,11 +12,17 @@ class ProfessorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('checkRole');
+    }
+
     public function index()
     {
-        $students = App\User::where('role', 'Professor')->get();
+        $professors = App\User::where('role', 'Professor')->get();
 
-        return view("professors.index", ['professors' => $students]);
+        return view("professors.index", ['professors' => $professors]);
     }
 
     /**
@@ -26,7 +32,9 @@ class ProfessorsController extends Controller
      */
     public function create()
     {
-        return view("shared.create");
+        $departments = App\Department::all();
+
+        return view("shared.create", ['departments' => $departments]);
     }
 
     /**

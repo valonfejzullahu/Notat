@@ -56,9 +56,9 @@
 
                             <div class="col-md-6">
                                 <select id="department" name="department" class="form-control">
-                                    <option selected value="1">Industrial Engineering</option>
-                                    <option value="2">Information Technology</option>
-                                    <option value="3">Network Engineering</option>
+                                    @foreach($departments as $department)
+                                        <option value="{{$department->id}}">{{$department->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

@@ -28,6 +28,8 @@ Route::get('/forgot_password', function () {
 });
 Auth::routes();
 
+Route::get('/admin', 'HomeController@admin');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/professors', 'ProfessorsController@index');
@@ -48,6 +50,7 @@ Route::get('/departments/edit', 'DepartmentsController@edit');
 Route::get('/departments/delete/{department}', 'DepartmentsController@destroy');
 
 Route::get('/classes', 'ClassesController@index');
+Route::get('/classes/mine', 'ClassesController@mine');
 Route::post('/classes', 'ClassesController@store');
 Route::get('/classes/create', 'ClassesController@create');
 Route::get('/classes/edit', 'ClassesController@edit');

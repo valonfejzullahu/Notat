@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use App\Http\Middleware;
 
 class StudentsController extends Controller
 {
@@ -12,6 +13,12 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('checkRole');
+    }
+
     public function index()
     {
         $students = App\User::where('role', 'Student')->get();
@@ -26,7 +33,9 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        return view("shared.create");
+        $departments = App\Department::all();
+
+        return view("shared.create", ['departments' => $departments]);
     }
 
     /**

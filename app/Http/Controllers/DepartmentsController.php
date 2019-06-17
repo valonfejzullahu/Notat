@@ -13,6 +13,13 @@ class DepartmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('checkRole');
+    }
+
+
     public function index()
     {
         $departments = App\Department::all();
