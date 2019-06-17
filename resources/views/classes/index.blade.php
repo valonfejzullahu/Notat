@@ -18,7 +18,7 @@
             <tr>
                 <th scope="row">{{$class->id}}</th>
                 <td>{{$class->name}}</td>
-                <td>{{$class->professors}}</td>
+                <td>{{$class->professor}}</td>
 {{--                @foreach($class->people as $person)--}}
 {{--                        <td>--}}
 {{--                            {{$person->role == "Professor" ? "$person->name" : ""}}--}}

@@ -37,7 +37,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             @if(Request::segment(2) != "create" and Request::segment(1) != "admin")
-                <a href="{{ Request::segment(1) }}/create"><button class="btn btn-primary" id="menu-toggle">Add New</button></a>
+                <a href="/{{ Request::segment(1) }}/create"><button class="btn btn-primary" id="menu-toggle">Add New</button></a>
             @endif
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

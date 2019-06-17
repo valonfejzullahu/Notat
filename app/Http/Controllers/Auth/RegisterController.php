@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Subject;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Grade;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -28,6 +33,19 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+    }
+
     protected $redirectTo = '/students';
 
     /**
@@ -63,12 +81,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'role' => $data['role'],
             'department' => $data['department'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if ($data['role'] == "Student"){
+            $departmentClasses = Subject::where("department", $data['department'])->get();
+            foreach ($departmentClasses as $departmentClass)
+                $grade = Grade::create([
+                    'student' => $user->id,
+                    'class' => $departmentClass['id'],
+                    'professors' => $departmentClass['professor'],
+                    'value' => 0,
+                    'assigned' => 0,
+                ]);
+
+        }
+
+
+        return redirect("/students");
     }
 }

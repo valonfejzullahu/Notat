@@ -1,8 +1,17 @@
 @extends("shared.user_layout")
 
 @section("content")
+    <?php
+        $user = Auth::user();
+        $role = $user->role;
 
-        <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a>
+        if ($role == "Admin"){?>
+            <a href="/classes"><button class="btn btn-primary" id="menu-toggle">Back</button></a><?php
+        }else{?>
+            <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a><?php
+        }
+        ?>
+{{--        <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a>--}}
     <br>
     <h3 class="text-center">Grades</h3>
     <br>

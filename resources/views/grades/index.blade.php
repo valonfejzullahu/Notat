@@ -6,7 +6,7 @@
         <thead>
         <tr>
             <th scope="col">ID#</th>
-            <th scope="col">Student</th>
+            <th scope="col">Class</th>
             <th scope="col">Professor</th>
             <th scope="col">Grade</th>
 {{--            <th scope="col">Date assigned</th>--}}
@@ -16,7 +16,7 @@
         @foreach($grades as $grade)
             <tr>
                 <th scope="row">{{$grade->id}}</th>
-                <td>{{$grade->student}}</td>
+                <td>{{$grade->class}}</td>
                 <td>{{$grade->professors}}</td>
                 <td>{{$grade->value == "" ? "Unassigned" : $grade->value}}</td>
 {{--                <td>{{$grade->assignedAt}}</td>--}}

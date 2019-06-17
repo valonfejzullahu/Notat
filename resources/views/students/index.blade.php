@@ -15,14 +15,14 @@
         </thead>
         <tbody>
         @foreach($students as $student)
-            <a href="students/{{$student->id}}">
+            <a href="/students/{{$student->id}}">
                 <tr>
                     <th scope="row">{{$student->id}}</th>
                     <td>{{$student->name}}</td>
                     <td>{{$student->email}}</td>
                     <td>{{$student->department}}</td>
 
-                    <td><a href="students/delete/{{$student->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                    <td><a href="/students/delete/{{$student->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
                 </tr>
             </a>
         @endforeach

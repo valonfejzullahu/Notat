@@ -78,6 +78,7 @@ class GradesController extends Controller
 
 
         return redirect("/grades/class/".$request->get('class'));
+
     }
 
 
