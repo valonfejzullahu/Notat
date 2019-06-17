@@ -22,7 +22,7 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading"><a href="/"><strong>Home</strong></a></div>
+        <div class="sidebar-heading"><a href="/admin"><strong>Admin</strong></a></div>
         <div class="list-group list-group-flush">
             <a href="/professors" class="list-group-item list-group-item-action bg-light">Professors</a>
             <a href="/students" class="list-group-item list-group-item-action bg-light">Students</a>
@@ -36,9 +36,21 @@
     <div id="page-content-wrapper">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            @if(Request::segment(2) != "create" and Request::segment(1) != "admin")
+            @if(Request::segment(2) != "create" and Request::segment(1) != "admin" and Request::segment(1) != "grades")
                 <a href="/{{ Request::segment(1) }}/create"><button class="btn btn-primary" id="menu-toggle">Add New</button></a>
             @endif
+
+                <?php
+                $user = Auth::user();
+                $role = $user->role;
+
+                if(Request::segment(1) == "grades")
+                if ($role == "Admin"){?>
+                <a href="/classes"><button class="btn btn-primary" id="menu-toggle">Back</button></a><?php
+                }else{?>
+                <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a><?php
+                }
+                ?>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,8 +64,10 @@
                 </ul>
             </div>
         </nav>
-
+        <br/>
+        <div class="container">
         @yield("content")
+        </div>
 
     </div>
     <!-- /#page-content-wrapper -->

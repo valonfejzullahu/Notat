@@ -18,14 +18,8 @@
             <tr>
                 <th scope="row">{{$class->id}}</th>
                 <td>{{$class->name}}</td>
-                <td>{{$class->professor}}</td>
-{{--                @foreach($class->people as $person)--}}
-{{--                        <td>--}}
-{{--                            {{$person->role == "Professor" ? "$person->name" : ""}}--}}
-{{--                        </td>--}}
-{{--                @endforeach--}}
-
-                <td>{{$class->department}}</td>
+                <td>{{$class->username}}</td>
+                <td>{{$class->departmentname}}</td>
                 <td><a href="grades/class/{{$class->id}}"><button type="button" class="btn btn-info">Grades</button></a></td>
                 <td><a href="classes/delete/{{$class->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
             </tr>

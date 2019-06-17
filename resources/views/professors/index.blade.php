@@ -18,7 +18,7 @@
                 <th scope="row">{{$professor->id}}</th>
                 <td>{{$professor->name}}</td>
                 <td>{{$professor->email}}</td>
-                <td>{{$professor->department}}</td>
+                <td>{{$professor->departmentname}}</td>
                 <td><a href="professors/delete/{{$professor->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
             </tr>
         @endforeach
@@ -26,3 +26,4 @@
     </table>
 
     @endsection
+

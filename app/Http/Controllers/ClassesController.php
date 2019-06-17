@@ -6,6 +6,7 @@ use App\Subject;
 use Illuminate\Http\Request;
 use App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClassesController extends Controller
 {
@@ -23,7 +24,13 @@ class ClassesController extends Controller
 
     public function index()
     {
-        $classes = App\Subject::all();
+        $classes = DB::table('classes')
+            ->leftJoin('departments', 'classes.department', '=', 'departments.id')
+            ->leftJoin('users', 'classes.professor', '=', 'users.id')
+            ->select("classes.*", "departments.name as departmentname", "users.name as username")
+            ->get();
+
+//        $classes = App\Subject::all();
 
         return view("classes.index", ['classes' => $classes]);
     }
@@ -32,7 +39,12 @@ class ClassesController extends Controller
     {
         $user = Auth::user();
         $id = $user->id;
-        $classes = App\Subject::where("professor", $id)->get();
+
+        $classes = DB::table('classes')
+            ->leftJoin('departments', 'classes.department', '=', 'departments.id')
+            ->select("classes.*", "departments.name as departmentname")
+            ->where("classes.professor","=",$id)
+            ->get();
 
         return view("classes.mine", ['classes' => $classes]);
     }

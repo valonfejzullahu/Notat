@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App;
 
@@ -20,7 +21,13 @@ class ProfessorsController extends Controller
 
     public function index()
     {
-        $professors = App\User::where('role', 'Professor')->get();
+        $professors = DB::table('users')
+            ->leftJoin('departments', 'users.department', '=', 'departments.id')
+            ->select("users.*", "departments.name as departmentname")
+            ->where("users.role", "=","Professor")
+            ->get();
+
+//        $professors = App\User::where('role', 'Professor')->get();
 
         return view("professors.index", ['professors' => $professors]);
     }

@@ -1,27 +1,14 @@
-@extends("shared.user_layout")
+@extends('shared.user_layout')
 
 @section("content")
-    <?php
-        $user = Auth::user();
-        $role = $user->role;
 
-        if ($role == "Admin"){?>
-            <a href="/classes"><button class="btn btn-primary" id="menu-toggle">Back</button></a><?php
-        }else{?>
-            <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a><?php
-        }
-        ?>
-{{--        <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a>--}}
-    <br>
-    <h3 class="text-center">Grades</h3>
-    <br>
     <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">ID#</th>
             <th scope="col">Student</th>
-            <th scope="col">Professor</th>
-{{--            <th scope="col">Grade</th>--}}
+{{--            <th scope="col">Professor</th>--}}
+            <th scope="col">Class</th>
             <th scope="col">Grade</th>
         </tr>
         </thead>
@@ -29,15 +16,16 @@
         @foreach($grades as $grade)
             <tr>
                 <th scope="row">{{$grade->id}}</th>
-                <td>{{$grade->student}}</td>
-                <td>{{$grade->professors}}</td>
+                <td>{{$grade->studentname}}</td>
+{{--                <td>{{$grade->professorname}}</td>--}}
+                <td>{{$grade->classname}}</td>
 {{--                <td>{{$grade->value == "" ? "Unassigned" : $grade->value}}</td>--}}
                 <td><form method="post" action="/grades/save">
                         @csrf
-                        <div class="form-group col-md-6">
+                        <div class="form-group">
                             <input type="hidden" name="id" value="{{$grade->id}}">
                             <input type="hidden" name="class" value="{{$grade->class}}">
-                            <input onchange="this.form.submit()" type="text" class="form-control" name="grade" value="{{$grade->value == "" ? "Unassigned" : $grade->value}}" >
+                            <input onchange="this.form.submit()" type="text" class="form-control col-sm-4" name="grade" value="{{$grade->value == "" ? "Unassigned" : $grade->value}}" >
                         </div>
                     </form>
                 </td>

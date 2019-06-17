@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 use App\Http\Middleware;
+use Illuminate\Support\Facades\DB;
 
 class StudentsController extends Controller
 {
@@ -21,7 +22,13 @@ class StudentsController extends Controller
 
     public function index()
     {
-        $students = App\User::where('role', 'Student')->get();
+        $students = DB::table('users')
+            ->leftJoin('departments', 'users.department', '=', 'departments.id')
+            ->select("users.*", "departments.name as departmentname")
+            ->where("users.role", "=","Student")
+            ->get();
+
+//        $students = App\User::where('role', 'Student')->get();
 
         return view("students.index", ['students' => $students]);
     }

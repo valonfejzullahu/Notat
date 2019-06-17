@@ -20,7 +20,7 @@
                     <th scope="row">{{$student->id}}</th>
                     <td>{{$student->name}}</td>
                     <td>{{$student->email}}</td>
-                    <td>{{$student->department}}</td>
+                    <td>{{$student->departmentname}}</td>
 
                     <td><a href="/students/delete/{{$student->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
                 </tr>
