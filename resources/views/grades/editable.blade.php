@@ -2,9 +2,10 @@
 
 @section("content")
 
-    </br>
+        <a href="/classes/mine"><button class="btn btn-primary" id="menu-toggle">Back</button></a>
+    <br>
     <h3 class="text-center">Grades</h3>
-    </br>
+    <br>
     <table class="table table-hover">
         <thead>
         <tr>
