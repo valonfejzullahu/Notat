@@ -56,7 +56,7 @@ class GradesController extends Controller
     {
         $grades = App\Grade::where('class', $id)->get();
 
-        return view("grades.index", ['grades' => $grades]);
+        return view("grades.editable", ['grades' => $grades]);
     }
 
     public function usergrades()
@@ -66,6 +66,18 @@ class GradesController extends Controller
         $grades = App\Grade::where('student', $id)->get();
 
         return view("grades.index", ['grades' => $grades]);
+    }
+
+    public function change(Request $request)
+    {
+//        $user = Auth::user();
+//        $id = $user->id;
+        $grade = App\Grade::find($request->get('id'));
+        $grade->value = $request->get('grade');
+        $grade->update();
+
+
+        return redirect("/grades/class/".$request->get('class'));
     }
 
 

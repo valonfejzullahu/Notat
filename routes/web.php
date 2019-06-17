@@ -58,5 +58,6 @@ Route::get('/classes/delete/{class}', 'ClassesController@destroy');
 
 Route::get('/grades/class/{class}', 'GradesController@classgrades');
 Route::get('/grades/mine', 'GradesController@usergrades');
+Route::post('/grades/save', 'GradesController@change');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
